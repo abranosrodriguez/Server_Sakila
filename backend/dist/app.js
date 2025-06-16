@@ -10,6 +10,7 @@ const express_session_1 = __importDefault(require("express-session"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const filmRoutes_1 = __importDefault(require("./routes/filmRoutes"));
 const autenticacion_1 = require("./routes/autenticacion");
+require("express-session");
 const app = (0, express_1.default)();
 const publicPath = path_1.default.join(__dirname, "../../frontend/public");
 const protectedPath = path_1.default.join(__dirname, "../../frontend/protected");
@@ -44,8 +45,9 @@ app.use("/protected", express_1.default.static(protectedPath));
 app.use("/dist", express_1.default.static(distPath));
 // API protegida: films
 app.use("/api/films", (req, res, next) => {
-    if (!req.session || !req.session.isAuthenticated) {
-        return res.status(403).json({ message: "Debes iniciar sesión primero." });
+    if (!req.session?.isAuthenticated) {
+        res.status(403).json({ message: "Debes iniciar sesión primero." });
+        return;
     }
     next();
 }, filmRoutes_1.default);
