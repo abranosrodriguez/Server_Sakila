@@ -1,2 +1,3 @@
-export const urlFilm: string = "http://localhost:3000/api/films";
-export const urlCategory: string = "http://localhost:3000/api/films/category";
+export const urlFilm: string = "https://server-sakila.onrender.com/api/films";
+export const urlCategory: string =
+  "https://server-sakila.onrender.com/api/films/category";
