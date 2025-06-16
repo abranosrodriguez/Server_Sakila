@@ -5,6 +5,7 @@ import session from "express-session";
 import cookieParser from "cookie-parser";
 import filmRoutes from "./routes/filmRoutes";
 import { authRouter } from "./routes/autenticacion";
+import "express-session";
 
 const app = express();
 const publicPath = path.join(__dirname, "../../frontend/public");
@@ -33,13 +34,16 @@ app.use(
 app.use("/", authRouter);
 
 // Middleware para proteger rutas dentro de /protected
-app.use("/protected", (req: Request, res: Response, next: NextFunction) => {
-  if (!req.session || !req.session.isAuthenticated) {
-    // No autenticado, redirige a login
-    return res.redirect("/index.html");
+app.use(
+  "/protected",
+  (req: Request, res: Response, next: NextFunction): void => {
+    if (!req.session || !req.session.isAuthenticated) {
+      // No autenticado, redirige a login
+      return res.redirect("/index.html");
+    }
+    next();
   }
-  next();
-});
+);
 
 // Servir archivos estáticos
 app.use(express.static(publicPath));
