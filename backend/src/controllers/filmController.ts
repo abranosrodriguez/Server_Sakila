@@ -42,8 +42,8 @@ export const getCategory = async (_req: Request, res: Response) => {
 };
 
 // Esta función recibe una query personalizada y la ejecuta
-export const runCustomQuery = async (req: Request, res: Response) => {
-  const { query } = req.body;
+export const runCustomQuery = async (_req: Request, res: Response) => {
+  const { query } = _req.body;
 
   if (!query || typeof query !== "string") {
     return res.status(400).json({ message: "Query no válida." });
