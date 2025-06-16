@@ -53,9 +53,10 @@ app.use("/dist", express.static(distPath));
 // API protegida: films
 app.use(
   "/api/films",
-  (req: Request, res: Response, next: NextFunction) => {
-    if (!req.session || !req.session.isAuthenticated) {
-      return res.status(403).json({ message: "Debes iniciar sesión primero." });
+  (req: Request, res: Response, next: NextFunction): void => {
+    if (!req.session?.isAuthenticated) {
+      res.status(403).json({ message: "Debes iniciar sesión primero." });
+      return;
     }
     next();
   },
