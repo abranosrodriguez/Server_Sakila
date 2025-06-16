@@ -1,0 +1,80 @@
+#containerButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#btnFilm,
+#btnQuery,
+#btnInput,
+#btnFind,
+#idSelect,
+#btnCustomQuery,
+#btnInputCustomQuery,
+#btnFindCustomQuery {
+  margin: 0.2em;
+}
+
+#idSelect {
+  float: left;
+  text-align: left;
+}
+
+#conBtnEnter {
+  justify-content: center;
+  align-items: center;
+}
+
+#login-form {
+  display: grid;
+}
+
+#login-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+#containText {
+  grid-area: 1 / 1 / 3 / 2;
+}
+#containInputs {
+  grid-area: 1 / 2 / 3 / 3;
+}
+#conBtnEnter {
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+#containText,
+#containInputs > * {
+  text-align: center;
+
+  margin: 0.5em;
+}
+
+#containText {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+#conBtnEnter {
+  margin-top: 0.5em;
+}
+
+#btnInputCustomQuery {
+  resize: none;
+}
+
+#btnCloseSession {
+  position: absolute;
+  right: 0%;
+}
