@@ -10,6 +10,6 @@ const router = Router();
 router.get("/", getFilms);
 
 router.get("/category", getCategory);
-router.post("/custom-query", runCustomQuery);
+//router.post("/custom-query", runCustomQuery);
 
 export default router;
